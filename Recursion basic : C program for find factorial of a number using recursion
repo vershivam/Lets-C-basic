@@ -1,0 +1,44 @@
+// Recursion
+/* Recursion is the nprocess of defining something in terms of itself, and is sometimes called circular definition  and is sometimes called
+circular definition. */
+/* When a function calls itself, a new set of local variables and parameters are allocated storage on the stack, and the function code is 
+executed from the top with these new variables.*/ 
+/* A recursive call does not make a new copy of the function. Only the values being operated upon are new and the old local variables and 
+parameters are removed from the stack,*/ 
+/* Recursive version may a little bit slow from its iterative version because of overrun of the stack or  Because storage for function 
+parameters and local variables is on thestack and each new call creates a new copy of these variables, the stack could be exhausted */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int factr(int);
+
+int main()
+{
+    int num;
+    int result;
+
+    printf("Enter a number to find it's Factorial: ");
+    scanf("%d", &num);
+    if (num < 0)
+    {
+        printf("Factorial of negative number not possible\n");
+    }
+    else
+    {
+        result = factr(num);
+        printf("The Factorial of %d is %d.\n", num, result);
+    }
+    return 0;
+}
+int factr(int num)
+{
+    if (num == 0 || num == 1)        // this is the base condition 
+    {
+        return 1;
+    }
+    else
+    {
+        return(num * factorial(num - 1));
+    }
+}
